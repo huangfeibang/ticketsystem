@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    username: javaee
+    password: javaee
+    url: jdbc:mysql://feibang.info:3306/student?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
