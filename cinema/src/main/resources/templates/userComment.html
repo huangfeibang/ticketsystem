@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="ua-windows ua-webkit" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta name="referrer" content="always" />
+    <meta name="google-site-verification" content="ok0wCgT20tBBgo9_zat2iAcimtN4Ftf5ccsh092Xeyw" />
+    <title>讨论“春潮”</title>
+    <link rel="stylesheet" href="https://img3.doubanio.com/f/olivia/136d9149a9dbd56c409728495cdf185d2fee6b4c/css/discussion/editor_n.css" />
+    <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript">
+        function submits() {
+            let form = document.getElementById("discussion-editor-form");
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">var _body_start = new Date();</script>
+<div class="nav">
+    <div class="nav-inner">
+        <div class="">
+            <a href="https://movie.douban.com/subject/27186348/">SHU影评</a>
+        </div>
+        <h1 class="nav-label">发布讨论</h1>
+        <div id="nav-top-actions" class="nav-actions">
+            <div class="discussion-editor-extra-actions">
+                <div class="discussion-editor-submit-group">
+                    <a href="javascript:;" class="discussion-editor-button-submit" onclick="submits()">提交</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrapper">
+    <div id="content">
+        <div class="grid-16-8 clearfix">
+            <div class="article">
+                <div id="discussion-editor-root" class="discussion-editor" style="display: block;">
+                    <div class="discussion-editor-">
+                        <div class="discussion-editor-subject-card">
+                            <a href="https://movie.douban.com/subject/27186348/" target="_blank">
+                                <div class="discussion-editor-subject-card-cover">
+                                    <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2604517782.webp" />
+                                </div>
+                                <div class="discussion-editor-subject-card-info">
+                                    <div class="discussion-editor-subject-card-title">
+                                        春潮
+                                    </div>
+                                    <div class="discussion-editor-subject-card-summary">
+                                        导演 杨荔钠 主演 郝蕾 / 金燕玲 / 中国大陆 / 7.2分(33987评价)
+                                    </div>
+                                </div></a>
+                        </div>
+                        <form id="discussion-editor-form" method="POST" action="/comment/submit">
+                            标题
+                            <input type="text" name="title" value="" />
+                            <br>
+                            内容
+                            <input type="text" name="content" value="" size="60" />
+                            <br>
+                            评分
+                            <input type="text" name="mark" value="" size="20" />
+
+                            <input type="hidden" name="id" th:value="${id}" />
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="aside">
+            </div>
+            <div class="extra">
+            </div>
+        </div>
+    </div>
+</div>
+<div></div>
+</body>
+</html>
