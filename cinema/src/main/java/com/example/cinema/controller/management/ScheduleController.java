@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-/**排片管理
- * @author fjj
- * @date 2019/4/11 4:13 PM
+/**
+ * 排片管理
  */
 @RestController
 public class ScheduleController {

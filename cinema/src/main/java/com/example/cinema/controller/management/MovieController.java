@@ -8,9 +8,8 @@ import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**电影管理
- * @author fjj
- * @date 2019/3/12 6:17 PM
+/**
+ * 电影管理
  */
 @RestController
 public class MovieController {

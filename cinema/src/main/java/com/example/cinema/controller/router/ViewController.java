@@ -17,10 +17,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author deng
- * @date 2019/03/11
- */
 @Controller
 public class ViewController {
     @Autowired

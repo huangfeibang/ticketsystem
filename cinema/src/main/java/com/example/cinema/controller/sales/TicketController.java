@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.cinema.bl.user.AccountService;
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/16.
- */
+
 @RestController
 @RequestMapping("/ticket")
 public class TicketController {

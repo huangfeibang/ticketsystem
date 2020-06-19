@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.cinema.vo.VIPCardForm;
 import com.example.cinema.bl.promotion.VIPService;
 import com.example.cinema.bl.user.AccountService;
-/**
- * Created by liying on 2019/4/14.
- */
+
 @RestController()
 @RequestMapping("/vip")
 public class VIPCardController {

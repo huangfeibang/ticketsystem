@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-/**
- * Created by liying on 2019/4/20.
- */
 @RestController
 @RequestMapping("/activity")
 public class ActivityController {

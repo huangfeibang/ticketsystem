@@ -96,7 +96,7 @@ function clearForm() {
 
 function confirmCommit() {
     if (validateForm()) {
-        if ($('#userMember-cardNum').val() === "123123123" && $('#userMember-cardPwd').val() === "123123") {
+        if ($('#userMember-cardNum').val() === "123456" && $('#userMember-cardPwd').val() === "123456") {
             if (isBuyState) {
                 var history_data={
                     userId:userId_fk,

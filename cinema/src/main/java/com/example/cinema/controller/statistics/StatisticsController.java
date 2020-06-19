@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/16 1:34 PM
- */
 @RestController
 public class StatisticsController {
     @Autowired

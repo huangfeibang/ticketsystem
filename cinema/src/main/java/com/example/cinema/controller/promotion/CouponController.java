@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-/**
- * Created by liying on 2019/4/16.
- */
+
 @RestController
 @RequestMapping("/coupon")
 public class CouponController {

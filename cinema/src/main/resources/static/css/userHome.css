@@ -7,10 +7,10 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    margin: 10px 18px -30px 18px;
+    margin: 10px 18px 5px 18px;
     border: 1px solid #efefef;
     width: 180px;
-    height: 380px;
+    height: 360px;
 }
 .movie-item a{
     text-decoration:none
@@ -129,12 +129,12 @@
     margin: 0 10px;
 }
 .movie-detail-strong {
-    height: 39px;
-    line-height: 39px;
+    height: 22px;
+    line-height: 22px;
 }
 .movie-detail {
-    height: 34px;
-    line-height: 34px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;

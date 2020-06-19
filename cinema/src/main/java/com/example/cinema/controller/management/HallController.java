@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.cinema.po.Hall;
-/**影厅管理
- * @author fjj
- * @date 2019/4/12 1:59 PM
+
+/**
+ * 影院管理
  */
 @RestController
 public class HallController {
