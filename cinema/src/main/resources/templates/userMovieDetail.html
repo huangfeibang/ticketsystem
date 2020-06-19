@@ -22,6 +22,7 @@
     <script src="/js/request.js"></script>
 
     <script src="/js/movieDetail.js"></script>
+    <script src="/js/userHome.js"></script>
     <script src="/js/userMovieDetail.js"></script>
 
 
@@ -43,7 +44,7 @@
         <button class="nav-user-container btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
             <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
-            <span class="gray-text" style="vertical-align: middle">用户A&nbsp;<span class="caret"></span></span>
+            <span class="gray-text" style="vertical-align: middle" id="user-name">test<span class="caret"></span></span>
         </button>
         <ul class="dropdown-menu">
             <li><a href="/user/buy">电影票</a></li>
@@ -104,9 +105,9 @@
 <div class="grid-16-8 clearfix" style="left: 80px">
     <div class="article" style="left: 100px">
         <div id="hot-comments" class="tab">
-            <div class="comment-item" data-cid="1846233588" style="left: 40%">
-
+            <div class="comment-item" data-cid="1846233588" style="left: 50%">
                 <div class="comment" th:each="cm:${comments}">
+                    <hr align="center" width="1000" color="#987cb9" size="2">
                     <h3>
 						<span class="comment-vote">
 							<input value="1846233588" type="hidden">
