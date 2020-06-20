@@ -2,10 +2,7 @@ package com.example.cinema.vo;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/21 3:00 PM
- */
+
 public class AudiencePriceVO {
     private Date date;
     /**

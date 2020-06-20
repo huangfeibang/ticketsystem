@@ -2,9 +2,6 @@ package com.example.cinema.vo;
 
 import java.util.*;
 
-/**
- * Created by liying on 2019/4/15.
- */
 public class VIPInfoVO {
 
     List<String> description;

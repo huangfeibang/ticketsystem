@@ -8,6 +8,7 @@ import com.example.cinema.po.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.cinema.bl.user.AccountService;
+
 import java.util.List;
 
 
@@ -18,36 +19,40 @@ public class TicketController {
     TicketService ticketService;
     @Autowired
     AccountService accountService;
+
     @PostMapping("/vip/buy")
-    public ResponseVO buyTicketByVIPCard(@RequestParam List<Integer> ticketId, @RequestParam int couponId){
-        return ticketService.completeByVIPCard(ticketId,couponId);
+    public ResponseVO buyTicketByVIPCard(@RequestParam List<Integer> ticketId, @RequestParam int couponId) {
+        return ticketService.completeByVIPCard(ticketId, couponId);
     }
 
     @PostMapping("/lockSeat")
-    public ResponseVO lockSeat(@RequestBody TicketForm ticketForm){
+    public ResponseVO lockSeat(@RequestBody TicketForm ticketForm) {
         return ticketService.addTicket(ticketForm);
     }
+
     @PostMapping("/buy")
-    public ResponseVO buyTicket(@RequestParam List<Integer> ticketId,@RequestParam int couponId){
-        return ticketService.completeTicket(ticketId,couponId);
+    public ResponseVO buyTicket(@RequestParam List<Integer> ticketId, @RequestParam int couponId) {
+        return ticketService.completeTicket(ticketId, couponId);
     }
+
     @GetMapping("/get/{userId}")
-    public ResponseVO getTicketByUserId(@PathVariable int userId){
+    public ResponseVO getTicketByUserId(@PathVariable int userId) {
         return ticketService.getTicketByUser(userId);
     }
 
     @GetMapping("/get/occupiedSeats")
-    public ResponseVO getOccupiedSeats(@RequestParam int scheduleId){
+    public ResponseVO getOccupiedSeats(@RequestParam int scheduleId) {
         return ticketService.getBySchedule(scheduleId);
     }
 
     @PostMapping("/cancel")
-    public ResponseVO cancelTicket(@RequestParam List<Integer> ticketId){
+    public ResponseVO cancelTicket(@RequestParam List<Integer> ticketId) {
         return ticketService.cancelTicket(ticketId);
     }
+
     @PostMapping("insert/history")
-    public ResponseVO insertHistory(@RequestBody historyItem history){return accountService.insertHistory(history); }
-
-
+    public ResponseVO insertHistory(@RequestBody historyItem history) {
+        return accountService.insertHistory(history);
+    }
 
 }

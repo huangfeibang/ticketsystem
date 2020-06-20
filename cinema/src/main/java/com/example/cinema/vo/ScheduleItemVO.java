@@ -4,10 +4,6 @@ import com.example.cinema.po.ScheduleItem;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/28 5:43 PM
- */
 public class ScheduleItemVO {
     /**
      * id

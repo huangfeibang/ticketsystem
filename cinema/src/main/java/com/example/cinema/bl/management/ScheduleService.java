@@ -4,10 +4,6 @@ import com.example.cinema.vo.*;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/11 4:14 PM
- */
 public interface ScheduleService {
     /**
      * 添加排片信息

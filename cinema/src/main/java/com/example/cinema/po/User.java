@@ -1,9 +1,6 @@
 package com.example.cinema.po;
 
-/**
- * @author huwen
- * @date 2019/3/23
- */
+
 public class User {
     private Integer id;
     private String username;

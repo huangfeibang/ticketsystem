@@ -2,10 +2,6 @@ package com.example.cinema.vo;
 
 import com.example.cinema.po.User;
 
-/**
- * @author fjj
- * @date 2019/4/11 3:22 PM
- */
 public class UserVO {
     private Integer id;
     private String username;

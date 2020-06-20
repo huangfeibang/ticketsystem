@@ -4,11 +4,6 @@ import com.example.cinema.vo.VIPCardForm;
 import com.example.cinema.vo.ResponseVO;
 
 
-
-/**
- * Created by liying on 2019/4/14.
- */
-
 public interface VIPService {
 
     ResponseVO addVIPCard(int userId);

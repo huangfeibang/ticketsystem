@@ -4,10 +4,6 @@ import com.example.cinema.po.Movie;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/3/23 1:12 PM
- */
 public class MovieVO {
     /**
      * 电影id

@@ -8,9 +8,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Created by liying on 2019/4/20.
- */
+
 public class Activity {
 
     private int id;

@@ -15,10 +15,7 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author fjj
- * @date 2019/4/12 2:01 PM
- */
+
 @Service
 public class HallServiceImpl implements HallService, HallServiceForBl {
     @Autowired

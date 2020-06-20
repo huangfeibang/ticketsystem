@@ -2,10 +2,6 @@ package com.example.cinema.vo;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/11 4:09 PM
- */
 public class ScheduleForm {
     /**
      * id

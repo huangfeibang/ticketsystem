@@ -1,9 +1,6 @@
 package com.example.cinema.po;
 
-/**
- * @author fjj
- * @date 2019/4/28 5:09 PM
- */
+
 public class Hall {
     private Integer id;
     private String name;

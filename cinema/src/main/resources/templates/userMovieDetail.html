@@ -27,9 +27,11 @@
 
 
     <link rel="stylesheet" href="https://img3.doubanio.com/misc/mixed_static/2e4770a427a85c78.css">
-    <link href="https://img3.doubanio.com/f/shire/3e5dfc68b0f376484c50cf08a58bbca3700911dc/css/douban.css" rel="stylesheet" type="text/css">
+    <link href="https://img3.doubanio.com/f/shire/3e5dfc68b0f376484c50cf08a58bbca3700911dc/css/douban.css"
+          rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://img3.doubanio.com/misc/mixed_static/7990987d344535f6.css">
-    <link href="https://img3.doubanio.com/f/movie/8864d3756094f5272d3c93e30ee2e324665855b0/css/movie/base/init.css" rel="stylesheet">
+    <link href="https://img3.doubanio.com/f/movie/8864d3756094f5272d3c93e30ee2e324665855b0/css/movie/base/init.css"
+          rel="stylesheet">
     <link href="//img3.doubanio.com/dae/accounts/resources/1f8d15e/shire/bundle.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -49,7 +51,7 @@
         <ul class="dropdown-menu">
             <li><a href="/user/buy">电影票</a></li>
             <li><a href="/user/member">卡包</a></li>
-            <li><a href ="/user/cost">充值/消费记录</a></li>
+            <li><a href="/user/cost">充值/消费记录</a></li>
             <li><a href="/user/info">个人信息</a></li>
             <li id="logout"><a href="#">登出</a></li>
         </ul>
@@ -60,8 +62,8 @@
         <img id="movie-img">
         <div class="movie-basic-info">
             <div><span class="title" id="movie-name"></span></div>
-            <div style="margin-top: 20px;"><span>简 介 ：</span><span id="movie-description" class="gray-text" ></span>
-            <a id="more" th:href=" '/user/movie/more?id='+${id} ">评论</a></div>
+            <div style="margin-top: 20px;"><span>简 介 ：</span><span id="movie-description" class="gray-text"></span>
+                <a id="more" th:href=" '/user/movie/more?id='+${id} ">评论</a></div>
             <div><span>上 映 ：</span><span id="movie-startDate"></span></div>
             <div><span>类 型 ：</span><span id="movie-type"></span></div>
             <div><span>地 区 ：</span><span id="movie-country"></span></div>
@@ -70,7 +72,8 @@
             <div><span>主 演 ：</span><span id="movie-starring"></span></div>
             <div><span>编 剧 ：</span><span id="movie-writer"></span></div>
             <div class="movie-operations">
-                <button type="button" class="btn btn-primary" id="like-btn"><i class='icon-heart'></i><span>想 看</span>
+                <button type="button" class="btn-primary" id="like-btn" style="border:0;width:70px;height:25px;"><i
+                        class='icon-heart'></i><span>想 看</span>
                 </button>
             </div>
         </div>
@@ -128,9 +131,9 @@
 
             </div>
 
-            </div>
         </div>
     </div>
+</div>
 </div>
 
 </body>

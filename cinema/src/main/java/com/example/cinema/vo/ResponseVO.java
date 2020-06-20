@@ -1,9 +1,5 @@
 package com.example.cinema.vo;
 
-/**
- * @author fjj
- * @date 2019/3/12 5:14 PM
- */
 public class ResponseVO {
 
     /**

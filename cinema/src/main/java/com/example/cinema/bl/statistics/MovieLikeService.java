@@ -2,10 +2,6 @@ package com.example.cinema.bl.statistics;
 
 import com.example.cinema.vo.ResponseVO;
 
-/**
- * @author fjj
- * @date 2019/4/28 3:07 PM
- */
 public interface MovieLikeService {
     /**
      * 想看电影

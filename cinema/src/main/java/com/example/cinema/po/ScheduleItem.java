@@ -2,10 +2,7 @@ package com.example.cinema.po;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/12 3:34 PM
- */
+
 public class ScheduleItem {
     /**
      * id

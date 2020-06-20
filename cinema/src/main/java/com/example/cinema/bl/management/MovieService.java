@@ -4,10 +4,6 @@ import com.example.cinema.vo.MovieBatchOffForm;
 import com.example.cinema.vo.MovieForm;
 import com.example.cinema.vo.ResponseVO;
 
-/**
- * @author fjj
- * @date 2019/3/12 6:24 PM
- */
 public interface MovieService {
     /**
      * 上架电影

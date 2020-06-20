@@ -2,9 +2,6 @@ package com.example.cinema.vo;
 
 import com.example.cinema.po.VIP_Strategy;
 
-/**
- * Created by liying on 2019/4/14.
- */
 public class VIPCardForm {
 
     /**

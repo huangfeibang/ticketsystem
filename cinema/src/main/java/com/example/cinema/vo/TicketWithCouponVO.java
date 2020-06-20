@@ -5,9 +5,6 @@ import com.example.cinema.po.Coupon;
 
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/21.
- */
 public class TicketWithCouponVO {
 
     private List<TicketVO> ticketVOList;

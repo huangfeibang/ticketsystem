@@ -11,11 +11,9 @@ import com.example.cinema.vo.UserVO;
 import org.omg.DynamicAny.DynArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
-/**
- * @author huwen
- * @date 2019/3/23
- */
+
 @Service
 public class AccountServiceImpl implements AccountService {
     private final static String ACCOUNT_EXIST = "账号已存在";
@@ -23,10 +21,11 @@ public class AccountServiceImpl implements AccountService {
     private AccountMapper accountMapper;
     @Autowired
     private HistoryMapper historyMapper;
+
     @Override
     public ResponseVO registerAccount(UserForm userForm) {
         try {//kind是账户的类型，0、1、2分别对应老板、管理员、观众
-            accountMapper.createNewAccount(userForm.getUsername(), userForm.getPassword(),userForm.getKind());
+            accountMapper.createNewAccount(userForm.getUsername(), userForm.getPassword(), userForm.getKind());
         } catch (Exception e) {
             return ResponseVO.buildFailure(ACCOUNT_EXIST);
         }
@@ -42,69 +41,72 @@ public class AccountServiceImpl implements AccountService {
         }
         return new UserVO(user);
     }
+
     @Override
-    public ResponseVO getHistoryByUserId(int userId){
-        try{
-            List<historyItem> list=historyMapper.getHistoryByUserId(userId);
+    public ResponseVO getHistoryByUserId(int userId) {
+        try {
+            List<historyItem> list = historyMapper.getHistoryByUserId(userId);
             /*for(historyItem it:list){
                 System.out.println(it.getMoney());
             }*/
-            return(ResponseVO.buildSuccess(list));
-        }
-        catch (Exception e){
+            return (ResponseVO.buildSuccess(list));
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }
     }
 
     @Override
-    public ResponseVO insertHistory(historyItem history){
-        try{//System.out.println("61!");
+    public ResponseVO insertHistory(historyItem history) {
+        try {//System.out.println("61!");
             historyMapper.insertHistory(history);
             return ResponseVO.buildSuccess();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }
     }
 
     @Override
-    public ResponseVO getUserById(int id){
-        try{
-            User user=accountMapper.getAccountById(id);
+    public ResponseVO getUserById(int id) {
+        try {
+            User user = accountMapper.getAccountById(id);
             //System.out.println(user.getUsername()+"  "+user.getPassword());
             return ResponseVO.buildSuccess(user);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }
     }
+
     @Override
-    public ResponseVO updateUser(User user){
-        try{
+    public ResponseVO updateUser(User user) {
+        try {
             accountMapper.updateUser(user);
             return ResponseVO.buildSuccess();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }
     }
+
     @Override
-    public ResponseVO getAllUser(){
-        try{
+    public ResponseVO getAllUser() {
+        try {
             return ResponseVO.buildSuccess(accountMapper.getAllUser());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }
 
     }
+
     @Override
-    public ResponseVO deleteUser(int id){
-        try{
+    public ResponseVO deleteUser(int id) {
+        try {
             accountMapper.deleteUser(id);
             return ResponseVO.buildSuccess(accountMapper);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return (ResponseVO.buildFailure("失败"));
         }

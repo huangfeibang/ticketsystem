@@ -2,10 +2,6 @@ package com.example.cinema.vo;
 
 import com.example.cinema.po.MovieTotalBoxOffice;
 
-/**
- * @author fjj
- * @date 2019/4/21 1:42 PM
- */
 public class MovieTotalBoxOfficeVO {
     private Integer movieId;
     /**

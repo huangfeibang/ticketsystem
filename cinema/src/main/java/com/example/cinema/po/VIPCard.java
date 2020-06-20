@@ -3,9 +3,6 @@ package com.example.cinema.po;
 
 import java.sql.Timestamp;
 
-/**
- * Created by liying on 2019/4/14.
- */
 
 public class VIPCard {
 

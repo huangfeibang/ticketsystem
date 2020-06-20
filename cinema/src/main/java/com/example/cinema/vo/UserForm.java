@@ -1,9 +1,5 @@
 package com.example.cinema.vo;
 
-/**
- * @author huwen
- * @date 2019/3/23
- */
 public class UserForm {
     /**
      * 用户名，不可重复

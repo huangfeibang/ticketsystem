@@ -5,6 +5,7 @@ import com.example.cinema.vo.ResponseVO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -15,14 +16,18 @@ public class CouponController {
     CouponService couponService;
 
     @GetMapping("{userId}/get")
-    public ResponseVO getCoupons(@PathVariable int userId){
+    public ResponseVO getCoupons(@PathVariable int userId) {
         return couponService.getCouponsByUser(userId);
     }
 
     @GetMapping("/get/all")
-    public ResponseVO getAllCoupon(){return couponService.getAllCoupon();}
+    public ResponseVO getAllCoupon() {
+        return couponService.getAllCoupon();
+    }
 
     @PostMapping("/send")
-    public ResponseVO sendCoupon(@RequestParam int couponId,@RequestParam  int[] userId){return couponService.sendCoupon(couponId,userId);}
+    public ResponseVO sendCoupon(@RequestParam int couponId, @RequestParam int[] userId) {
+        return couponService.sendCoupon(couponId, userId);
+    }
 
 }

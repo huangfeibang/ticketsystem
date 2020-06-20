@@ -4,10 +4,6 @@ import com.example.cinema.vo.ResponseVO;
 
 import java.util.Date;
 
-/**
- * @author fjj
- * @date 2019/4/16 1:34 PM
- */
 public interface StatisticsService {
     /**
      * 获取某日各影片排片率统计数据

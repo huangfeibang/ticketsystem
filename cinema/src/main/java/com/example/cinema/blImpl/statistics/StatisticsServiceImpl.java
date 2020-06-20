@@ -19,10 +19,6 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * @author fjj
- * @date 2019/4/16 1:34 PM
- */
 @Service
 public class StatisticsServiceImpl implements StatisticsService {
     @Autowired

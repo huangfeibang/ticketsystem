@@ -121,8 +121,6 @@ function orderConfirmClick() {
     $('#seat-state').css("display", "none");
     $('#order-state').css("display", "");
 
-    // TODO:这里是假数据，需要连接后端获取真数据，数据格式可以自行修改，但如果改了格式，别忘了修改renderOrder方法
-    //window.alert(selectedSeats.length);
     for (let it of selectedSeats) {
         var temp = {
             columnIndex: it[1],

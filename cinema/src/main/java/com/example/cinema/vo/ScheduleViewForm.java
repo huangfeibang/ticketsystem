@@ -1,9 +1,5 @@
 package com.example.cinema.vo;
 
-/**
- * @author fjj
- * @date 2019/4/13 12:08 PM
- */
 public class ScheduleViewForm {
     private Integer day;
 

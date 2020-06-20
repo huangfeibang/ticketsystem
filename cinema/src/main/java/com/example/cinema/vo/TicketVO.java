@@ -2,9 +2,6 @@ package com.example.cinema.vo;
 
 import java.sql.Timestamp;
 
-/**
- * Created by liying on 2019/4/16.
- */
 public class TicketVO {
 
     /**

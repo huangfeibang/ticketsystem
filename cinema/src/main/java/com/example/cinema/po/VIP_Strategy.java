@@ -42,8 +42,8 @@ public class VIP_Strategy {
     int giftAmount;
 
 
-    public String getDescription(){
-        return "满"+this.getChargeLimit()+"赠"+this.getGiftAmount();
+    public String getDescription() {
+        return "满" + this.getChargeLimit() + "赠" + this.getGiftAmount();
     }
 
     /**

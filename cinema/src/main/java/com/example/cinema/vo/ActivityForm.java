@@ -3,9 +3,7 @@ package com.example.cinema.vo;
 import java.sql.Timestamp;
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/20.
- */
+
 public class ActivityForm {
     /**
      * 优惠活动名称

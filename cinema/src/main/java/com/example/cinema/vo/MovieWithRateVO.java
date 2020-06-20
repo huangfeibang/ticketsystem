@@ -1,4 +1,5 @@
 package com.example.cinema.vo;
+
 import com.example.cinema.data.management.ScheduleMapper;
 import com.example.cinema.po.Movie;
 import com.example.cinema.po.ScheduleItem;
@@ -55,6 +56,7 @@ public class MovieWithRateVO {
     private Integer length;
     /**
      * 描述
+     *
      * @return
      */
     private String description;
@@ -68,11 +70,13 @@ public class MovieWithRateVO {
     private Integer islike;
     /**
      * 想看人数
+     *
      * @return
      */
     private Integer likeCount;
     private double rate;
-    public MovieWithRateVO(Movie movie){
+
+    public MovieWithRateVO(Movie movie) {
         this.id = movie.getId();
         this.name = movie.getName();
         this.posterUrl = movie.getPosterUrl();
@@ -88,10 +92,11 @@ public class MovieWithRateVO {
         this.status = movie.getStatus();
         this.islike = movie.getIslike();
         this.likeCount = movie.getLikeCount();
-        this.rate=0;
+        this.rate = 0;
     }
 
-    public MovieWithRateVO(){}
+    public MovieWithRateVO() {
+    }
 
 
     public Integer getId() {
@@ -213,6 +218,12 @@ public class MovieWithRateVO {
     public void setLikeCount(Integer likeCount) {
         this.likeCount = likeCount;
     }
-    public double getRate(){return this.rate;}
-    public void setRate(double rate){this.rate=rate;}
+
+    public double getRate() {
+        return this.rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
 }

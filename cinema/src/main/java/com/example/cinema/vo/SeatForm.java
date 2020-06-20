@@ -1,8 +1,5 @@
 package com.example.cinema.vo;
 
-/**
- * Created by liying on 2019/4/18.
- */
 public class SeatForm {
     /**
      * 列号

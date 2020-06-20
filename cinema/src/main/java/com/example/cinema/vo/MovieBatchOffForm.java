@@ -2,10 +2,6 @@ package com.example.cinema.vo;
 
 import java.util.List;
 
-/**
- * @author fjj
- * @date 2019/4/16 9:51 PM
- */
 public class MovieBatchOffForm {
     /**
      * 要下架的电影id列表

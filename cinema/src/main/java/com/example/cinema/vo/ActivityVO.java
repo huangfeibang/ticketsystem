@@ -5,9 +5,7 @@ import com.example.cinema.po.Coupon;
 import java.sql.Timestamp;
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/20.
- */
+
 public class ActivityVO {
 
     private int id;

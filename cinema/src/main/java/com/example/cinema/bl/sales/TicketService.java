@@ -8,9 +8,6 @@ import com.example.cinema.vo.TicketForm;
 import java.util.List;
 
 
-/**
- * Created by liying on 2019/4/16.
- */
 public interface TicketService {
     /**
      * TODO:锁座【增加票但状态为未付款】
