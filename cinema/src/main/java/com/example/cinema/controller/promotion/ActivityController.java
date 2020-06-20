@@ -15,13 +15,18 @@ public class ActivityController {
     ActivityService activityService;
 
     @PostMapping("/publish")
-    public ResponseVO publishActivity(@RequestBody ActivityForm activityForm){
+    public ResponseVO publishActivity(@RequestBody ActivityForm activityForm) {
         return activityService.publishActivity(activityForm);
     }
+
     @GetMapping("/get")
-    public ResponseVO getActivities(){
+    public ResponseVO getActivities() {
         return activityService.getActivities();
     }
 
+    @PostMapping("/delete")
+    public ResponseVO deleteActivityById(@RequestParam int id) {
+        return activityService.deleteActivityById(id);
+    }
 
 }

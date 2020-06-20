@@ -6,16 +6,14 @@ import com.example.cinema.po.MovieTotalBoxOffice;
 import com.example.cinema.po.Ticket;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 import java.sql.Timestamp;
 
-/**
- * @author fjj
- * @date 2019/4/16 1:43 PM
- */
 @Mapper
+@Repository(value = "statisticsMapper")
 public interface StatisticsMapper {
     /**
      * 查询date日期每部电影的排片次数

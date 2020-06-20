@@ -77,5 +77,9 @@ public class MovieController {
         return movieService.updateMovie(updateMovieForm);
     }
 
+    @RequestMapping(value = "/movie/delete", method = RequestMethod.POST)
+    public ResponseVO deleteMovieById(@RequestBody MovieBatchOffForm movieBatchOffForm) {
+        return movieService.deleteMovieById(movieBatchOffForm);
+    }
 
 }

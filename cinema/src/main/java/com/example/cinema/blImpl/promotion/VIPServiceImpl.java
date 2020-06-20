@@ -11,20 +11,20 @@ import com.example.cinema.vo.ResponseVO;
 import com.example.cinema.vo.VIPInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 
-/**
- * Created by liying on 2019/4/14.
- */
+
 @Service
 public class VIPServiceImpl implements VIPService {
     @Autowired
     VIPCardMapper vipCardMapper;
     @Autowired
     AccountMapper accountMapper;
+
     @Override
     public ResponseVO addVIPCard(int userId) {
-        User user=accountMapper.getAccountById(userId);
+        User user = accountMapper.getAccountById(userId);
         VIPCard vipCard = new VIPCard();
         vipCard.setUserId(userId);
         vipCard.setBalance(0);
@@ -52,9 +52,9 @@ public class VIPServiceImpl implements VIPService {
     @Override
     public ResponseVO getVIPInfo() {
         VIPInfoVO vipInfoVO = new VIPInfoVO();
-        List<VIP_Strategy> strategies=vipCardMapper.getVIP_Strategy();
-        List<String> description=new ArrayList<>();
-        for(int i=0;i<strategies.size();i++){
+        List<VIP_Strategy> strategies = vipCardMapper.getVIP_Strategy();
+        List<String> description = new ArrayList<>();
+        for (int i = 0; i < strategies.size(); i++) {
             description.add(strategies.get(i).getDescription());
         }
         vipInfoVO.setDescription(description);
@@ -69,10 +69,10 @@ public class VIPServiceImpl implements VIPService {
         if (vipCard == null) {
             return ResponseVO.buildFailure("会员卡不存在");
         }
-        VIP_Strategy vip_strategy=vipCardMapper.selectVIP_StrategyById(vipCardForm.getVipStrategyID());
-        double balance = vipCardForm.getAmount()/vip_strategy.getChargeLimit()*vip_strategy.getGiftAmount()+vipCardForm.getAmount();
+        VIP_Strategy vip_strategy = vipCardMapper.selectVIP_StrategyById(vipCardForm.getVipStrategyID());
+        double balance = vipCardForm.getAmount() / vip_strategy.getChargeLimit() * vip_strategy.getGiftAmount() + vipCardForm.getAmount();
         vipCard.setBalance(vipCard.getBalance() + balance);
-        vipCard.setTotal(vipCard.getTotal()+vipCardForm.getAmount());
+        vipCard.setTotal(vipCard.getTotal() + vipCardForm.getAmount());
         try {
             vipCardMapper.updateCardBalance(vipCardForm.getVipId(), vipCard.getBalance());
             vipCardMapper.updateCardTotal(vipCardForm.getVipId(), vipCard.getTotal());
@@ -87,7 +87,7 @@ public class VIPServiceImpl implements VIPService {
     public ResponseVO getCardByUserId(int userId) {
         try {
             VIPCard vipCard = vipCardMapper.selectCardByUserId(userId);
-            if(vipCard==null){
+            if (vipCard == null) {
                 return ResponseVO.buildFailure("用户卡不存在");
             }
             //System.out.println(vipCard.getBalance());
@@ -99,66 +99,67 @@ public class VIPServiceImpl implements VIPService {
     }
 
     @Override
-    public ResponseVO issueVIP_Strategy(int chargeLimit,int giftAmount){
-        try{
-            VIP_Strategy vip_strategy=new VIP_Strategy();
+    public ResponseVO issueVIP_Strategy(int chargeLimit, int giftAmount) {
+        try {
+            VIP_Strategy vip_strategy = new VIP_Strategy();
             vip_strategy.setGiftAmount(giftAmount);
             vip_strategy.setChargeLimit(chargeLimit);
-            int VIP_Strategy_ID=vipCardMapper.addVIP_Strategy(vip_strategy);//新增会员卡充值优惠策略
+            int VIP_Strategy_ID = vipCardMapper.addVIP_Strategy(vip_strategy);//新增会员卡充值优惠策略
             return ResponseVO.buildSuccess(vipCardMapper.selectVIP_StrategyById(VIP_Strategy_ID));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
         }
     }
 
     @Override
-    public ResponseVO changeVIP_Strategy(int VIP_Strategy_ID,int chargeLimit,int giftAmount){
-        try{
-            vipCardMapper.changeVIP_Strategy(VIP_Strategy_ID,chargeLimit,giftAmount);//修改优惠策略
+    public ResponseVO changeVIP_Strategy(int VIP_Strategy_ID, int chargeLimit, int giftAmount) {
+        try {
+            vipCardMapper.changeVIP_Strategy(VIP_Strategy_ID, chargeLimit, giftAmount);//修改优惠策略
             return ResponseVO.buildSuccess(vipCardMapper.selectVIP_StrategyById(VIP_Strategy_ID));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
         }
     }
 
     @Override
-    public ResponseVO getAllVip_Strategy(){//System.out.println("119");
-        try{//获取所有会员卡充值优惠策略
-            List<VIP_Strategy> list=vipCardMapper.getVIP_Strategy();
+    public ResponseVO getAllVip_Strategy() {//System.out.println("119");
+        try {//获取所有会员卡充值优惠策略
+            List<VIP_Strategy> list = vipCardMapper.getVIP_Strategy();
             /*for(VIP_Strategy it:list){
                 System.out.println(it.getId()+" "+it.getChargeLimit()+" "+it.getGiftAmount());
             }*/
             return (ResponseVO.buildSuccess(list));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
         }
     }
 
     @Override
-    public ResponseVO deleteVIP_Strategy(int VIP_Strategy_ID){
-        try{//根据id删除会员卡优惠策略
+    public ResponseVO deleteVIP_Strategy(int VIP_Strategy_ID) {
+        try {//根据id删除会员卡优惠策略
             vipCardMapper.deleteVIP_Strategy(VIP_Strategy_ID);
             return ResponseVO.buildSuccess();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
         }
     }
+
     @Override
-    public ResponseVO getVipByMoney(int money){
-        try{//根据消费总额筛选vip名单
-            List<VIPCard> list1=vipCardMapper.selectAllVip();//所有会员
-            List<VIPCard> list2=new ArrayList<>();//返回的筛选名单
-            for(VIPCard it:list1){
-                if(it.getTotal()>=money){
+    public ResponseVO getVipByMoney(int money) {
+        try {//根据消费总额筛选vip名单
+            List<VIPCard> list1 = vipCardMapper.selectAllVip();//所有会员
+            List<VIPCard> list2 = new ArrayList<>();//返回的筛选名单
+            for (VIPCard it : list1) {
+                if (it.getTotal() >= money) {
                     list2.add(it);
                 }
             }
             return ResponseVO.buildSuccess(list2);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
         }

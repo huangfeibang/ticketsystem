@@ -75,6 +75,9 @@
 
     </select>
 
+    <delete id="deleteActivityById" parameterType="int">
+        delete from activity where id=#{id}
+    </delete>
 
 
     <resultMap id="Activity" type="com.example.cinema.po.Activity">
@@ -83,7 +86,8 @@
         <result column="activity_name" property="name"></result>
         <result column="start_time" property="startTime"></result>
         <result column="end_time" property="endTime"></result>
-        <association property="coupon" column="coupon_id" select="com.example.cinema.data.promotion.CouponMapper.selectById">
+        <association property="coupon" column="coupon_id"
+                     select="com.example.cinema.data.promotion.CouponMapper.selectById">
         </association>
         <collection property="movieList" ofType="com.example.cinema.po.Movie">
             <id column="movie_id" property="id"></id>

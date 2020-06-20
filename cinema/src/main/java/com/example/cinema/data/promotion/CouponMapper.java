@@ -3,13 +3,13 @@ package com.example.cinema.data.promotion;
 import com.example.cinema.po.Coupon;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/17.
- */
+
 @Mapper
+@Repository(value = "couponMapper")
 public interface CouponMapper {
 
     int insertCoupon(Coupon coupon);

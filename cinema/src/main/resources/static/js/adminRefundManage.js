@@ -167,5 +167,5 @@ $(document).ready(function () {
                 }
             )
         }
-    })
-})
+    });
+});

@@ -11,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by liying on 2019/4/20.
- */
 @Service
 public class ActivityServiceImpl implements ActivityService {
 
@@ -35,7 +32,7 @@ public class ActivityServiceImpl implements ActivityService {
             activity.setEndTime(activityForm.getEndTime());
             activity.setCoupon(coupon);
             activityMapper.insertActivity(activity);
-            if(activityForm.getMovieList()!=null&&activityForm.getMovieList().size()!=0){
+            if (activityForm.getMovieList() != null && activityForm.getMovieList().size() != 0) {
                 activityMapper.insertActivityAndMovie(activity.getId(), activityForm.getMovieList());
             }
             return ResponseVO.buildSuccess(activityMapper.selectById(activity.getId()));
@@ -49,6 +46,17 @@ public class ActivityServiceImpl implements ActivityService {
     public ResponseVO getActivities() {
         try {
             return ResponseVO.buildSuccess(activityMapper.selectActivities().stream().map(Activity::getVO));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+        }
+    }
+
+    @Override
+    public ResponseVO deleteActivityById(int id) {
+        try {
+            activityMapper.deleteActivityById(id);
+            return this.getActivities();
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");

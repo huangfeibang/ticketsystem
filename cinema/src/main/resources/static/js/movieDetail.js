@@ -122,7 +122,6 @@ $(document).ready(function(){
 
     // admin界面才有
     $("#modify-btn").click(function () {
-       //alert('交给你们啦，修改时需要在对应html文件添加表单然后获取用户输入，提交给后端，别忘记对用户输入进行验证。（可参照添加电影&添加排片&修改排片）');
        var form=getMovieEditForm();
        if(validateMovieForm(form)) {
 
@@ -144,7 +143,6 @@ $(document).ready(function(){
        }
     });
     $("#delete-btn").click(function () {
-        //alert('交给你们啦，下架别忘记需要一个确认提示框，也别忘记下架之后要对用户有所提示哦');
         var r=confirm("确认要下架该电影吗")
                 if (r) {
                     postRequest(
@@ -154,7 +152,7 @@ $(document).ready(function(){
                             if(res.success){
                                 //getMovie();
                                 //$('.movie-on-list').delete(res.content);
-                                $("#movieOffBatchModal").modal('hide');
+                                // $("#movieOffBatchModal").modal('hide');
                                 alert("下架成功");
                             } else{
                                 alert(res.message);
@@ -166,6 +164,29 @@ $(document).ready(function(){
                     );
                 }
     });
+    $("#deleteMovie-btn").click(function () {
+        var r=confirm("确认要删除该电影吗")
+        if (r) {
+            postRequest(
+                '/movie/delete',
+                {movieIdList:[data.id]},
+                function (res) {
+                    if(res.success){
+                        //getMovie();
+                        //$('.movie-on-list').delete(res.content);
+                        // $("#movieOffBatchModal").modal('hide');
+                        alert("删除成功");
+                    } else{
+                        alert(res.message);
+                    }
+                },
+                function (error) {
+                    alert(JSON.stringify(error));
+                }
+            );
+        }
+    });
+
     function getMovieEditForm() {
         return {
             id: data.id,

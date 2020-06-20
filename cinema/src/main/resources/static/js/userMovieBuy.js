@@ -6,11 +6,11 @@ var isVIP = false;
 var useVIP = true;
 var userId_fk = sessionStorage.getItem('id');
 var scheduleData;
-var total_fare=0;
-var seatList=[];
-var ticketData=[];
-var orderInfo2={};
-var MovieName="";
+var total_fare = 0;
+var seatList = [];
+var ticketData = [];
+var orderInfo2 = {};
+var MovieName = "";
 var movieId = parseInt(window.location.href.split('?')[1].split('&')[0].split('=')[1]);
 //var userId = sessionStorage.getItem('id');
 $(document).ready(function () {
@@ -23,7 +23,7 @@ $(document).ready(function () {
             '/ticket/get/occupiedSeats?scheduleId=' + scheduleId_fk,
             function (res) {
                 if (res.success) {
-                    scheduleData=res.content.scheduleItem;
+                    scheduleData = res.content.scheduleItem;
                     renderSchedule(res.content.scheduleItem, res.content.seats);
                 }
             },
@@ -32,8 +32,8 @@ $(document).ready(function () {
             }
         );
         getRequest(
-            '/movie/'+movieId + '/' + userId_fk,
-            function(res){
+            '/movie/' + movieId + '/' + userId_fk,
+            function (res) {
                 MovieName = res.content.name;
             },
             function (error) {
@@ -42,6 +42,7 @@ $(document).ready(function () {
         );
     }
 });
+
 function renderSchedule(schedule, seats) {
     $('#schedule-hall-name').text(schedule.hallName);
     $('#order-schedule-hall-name').text(schedule.hallName);
@@ -122,30 +123,30 @@ function orderConfirmClick() {
 
     // TODO:这里是假数据，需要连接后端获取真数据，数据格式可以自行修改，但如果改了格式，别忘了修改renderOrder方法
     //window.alert(selectedSeats.length);
-    for (let it of selectedSeats){
-        var temp={
-            columnIndex:it[1],
-            rowIndex:it[0]
+    for (let it of selectedSeats) {
+        var temp = {
+            columnIndex: it[1],
+            rowIndex: it[0]
         };
-        seatList[seatList.length]=temp;
+        seatList[seatList.length] = temp;
     }
-    var ticketForm={
-        userId:userId_fk,
-        scheduleId:scheduleId_fk,
-        seats:seatList
+    var ticketForm = {
+        userId: userId_fk,
+        scheduleId: scheduleId_fk,
+        seats: seatList
     };
 
     postRequest(
         '/ticket/lockSeat',
         ticketForm,
-        function (res){
-            if(res.success){
-                ticketData=res.content.ticketVOList;
+        function (res) {
+            if (res.success) {
+                ticketData = res.content.ticketVOList;
                 //window.alert("129  "+ticketData.length);
-                orderInfo2=res.content;
+                orderInfo2 = res.content;
                 renderOrder(orderInfo2);
 
-            }else{
+            } else {
                 alert(res.message);
             }
         },
@@ -201,7 +202,7 @@ function renderOrder(orderInfo) { //window.alert(orderInfo.ticketVOList.length);
     $('#order-tickets').html(ticketStr);
 
     var total = orderInfo.total.toFixed(2);
-    total_fare=total;
+    total_fare = total;
     $('#order-total').text(total);
     $('#order-footer-total').text("总金额： ¥" + total);
 
@@ -223,8 +224,14 @@ function renderOrder(orderInfo) { //window.alert(orderInfo.ticketVOList.length);
 
 function changeCoupon(couponIndex) {
     order.couponId = coupons[couponIndex].id;
-    $('#order-discount').text("优惠金额： ¥" + coupons[couponIndex].discountAmount.toFixed(2));
-    var actualTotal = (parseFloat($('#order-total').text()) - parseFloat(coupons[couponIndex].discountAmount)).toFixed(2);
+    $('#order-discount').text("优惠金额： ¥0.00");
+    var total = parseFloat($('#order-total').text());
+    var actualTotal = total;
+    if (total >= parseFloat(coupons[couponIndex].targetAmount)) {
+        actualTotal = (total - parseFloat(coupons[couponIndex].discountAmount)).toFixed(2);
+        $('#order-discount').text("优惠金额： ¥" + coupons[couponIndex].discountAmount.toFixed(2));
+    }
+    // var actualTotal = (parseFloat($('#order-total').text()) - parseFloat(coupons[couponIndex].discountAmount)).toFixed(2);
     $('#order-actual-total').text(" ¥" + actualTotal);
     $('#pay-amount').html("<div><b>金额：</b>" + actualTotal + "元</div>");
 }
@@ -234,7 +241,7 @@ function payConfirmClick() {
         postPayRequest();
     } else {
         if (validateForm()) {
-            if ($('#userBuy-cardNum').val() === "123123123" && $('#userBuy-cardPwd').val() === "123123") {
+            if ($('#userBuy-cardNum').val() === "123456" && $('#userBuy-cardPwd').val() === "123456") {
                 postPayRequest();
             } else {
                 alert("银行卡号或密码错误");
@@ -247,33 +254,32 @@ function payConfirmClick() {
 function postPayRequest() {
     $('#order-state').css("display", "none");
 
-    var history_data={
-        userId:userId_fk,
-        kind:2,
-        money:total_fare,
-        description:"电影名："+MovieName+"；"+"影厅名："+scheduleData.hallName+"；"+"票价："+scheduleData.fare,
+    var history_data = {
+        userId: userId_fk,
+        kind: 2,
+        money: total_fare,
+        description: "电影名：" + MovieName + "；" + "影厅名：" + scheduleData.hallName + "；" + "票价：" + scheduleData.fare,
     };//alert(history_data.money);
     postRequest(
         '/ticket/insert/history',
         history_data,
-        function (res){
+        function (res) {
 
         },
         function (error) {
             alert(error);
         }
     );
-    if(useVIP){
+    if (useVIP) {
         postRequest(
-            '/ticket/vip/buy?ticketId='+order.ticketId+'&couponId='+order.couponId,
+            '/ticket/vip/buy?ticketId=' + order.ticketId + '&couponId=' + order.couponId,
             null,
 
             function (res) {
-                if(res.success){
+                if (res.success) {
                     $('#success-state').css("display", "");
                     $('#buyModal').modal('hide')
-                }
-                else{
+                } else {
                     $('#success-state').css("display", "none");
                     $('#fail-state').css("display", "");
                     $('#buyModal').modal('hide')
@@ -282,29 +288,24 @@ function postPayRequest() {
             function (error) {
                 alert(error)
             }
-
         );
-    }
-    else{
+    } else {
         postRequest(
-            '/ticket/buy?ticketId='+order.ticketId+'&couponId='+order.couponId,
+            '/ticket/buy?ticketId=' + order.ticketId + '&couponId=' + order.couponId,
             null,
             function (res) {
-                if(res.success){
+                if (res.success) {
                     $('#success-state').css("display", "");
                     $('#buyModal').modal('hide')
-                }
-                else{
+                } else {
                     alert(res.message)
                 }
             },
             function (error) {
                 alert(error)
             }
-
         );
     }
-
 
 
 }

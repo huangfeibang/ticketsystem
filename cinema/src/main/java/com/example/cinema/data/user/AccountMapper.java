@@ -3,12 +3,13 @@ package com.example.cinema.data.user;
 import com.example.cinema.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
-/**
- * @author huwen
- * @date 2019/3/23
- */
+
+
 @Mapper
+@Repository(value = "accountMapper")
 public interface AccountMapper {
 
     /**

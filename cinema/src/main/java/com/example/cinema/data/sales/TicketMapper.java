@@ -4,13 +4,12 @@ import com.example.cinema.po.Ticket;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by liying on 2019/4/16.
- */
 @Mapper
+@Repository(value = "ticketMapper")
 public interface TicketMapper {
 
     int insertTicket(Ticket ticket);

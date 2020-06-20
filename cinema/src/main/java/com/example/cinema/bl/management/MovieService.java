@@ -57,4 +57,11 @@ public interface MovieService {
      */
     ResponseVO updateMovie(MovieForm updateMovieForm);
 
+    /**
+     * 批量删除电影
+     * @param movieBatchOffForm
+     * @return
+     */
+    ResponseVO deleteMovieById(MovieBatchOffForm movieBatchOffForm);
+
 }

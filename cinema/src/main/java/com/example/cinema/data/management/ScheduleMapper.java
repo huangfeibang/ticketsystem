@@ -6,15 +6,14 @@ import com.example.cinema.po.ScheduleItem;
 import com.example.cinema.vo.ScheduleViewForm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author fjj
- * @date 2019/4/11 4:18 PM
- */
+
 @Mapper
+@Repository(value = "scheduleMapper")
 public interface ScheduleMapper {
     /**
      * 插入一条排片信息

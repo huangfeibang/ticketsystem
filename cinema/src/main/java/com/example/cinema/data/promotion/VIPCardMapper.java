@@ -4,12 +4,13 @@ import com.example.cinema.po.VIPCard;
 import com.example.cinema.po.VIP_Strategy;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
 
-/**
- * Created by liying on 2019/4/14.
- */
+
 @Mapper
+@Repository(value = "vipCardMapper")
 public interface VIPCardMapper {
 
     int insertOneCard(VIPCard vipCard);

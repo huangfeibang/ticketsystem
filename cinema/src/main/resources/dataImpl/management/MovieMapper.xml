@@ -52,6 +52,13 @@
         where id = #{id}
     </update>
 
+    <delete id="deleteMovieById" parameterType="java.util.List">
+        delete from movie where id in
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
     <resultMap id="Movie" type="com.example.cinema.po.Movie">
         <id column="id" property="id"></id>
         <result column="poster_url" property="posterUrl"></result>

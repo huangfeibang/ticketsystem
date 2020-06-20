@@ -5,6 +5,7 @@ import com.example.cinema.vo.MovieForm;
 import com.example.cinema.vo.MovieVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,9 +14,11 @@ import java.util.List;
  * @date 2019/3/12 6:26 PM
  */
 @Mapper
+@Repository(value = "movieMapper")
 public interface MovieMapper {
     /**
      * 插入一条电影信息
+     *
      * @param addMovieForm
      * @return
      */
@@ -23,6 +26,7 @@ public interface MovieMapper {
 
     /**
      * 根据id查找电影
+     *
      * @param id
      * @return
      */
@@ -30,6 +34,7 @@ public interface MovieMapper {
 
     /**
      * 根据id和userId查找电影
+     *
      * @param id
      * @param userId
      * @return
@@ -38,18 +43,21 @@ public interface MovieMapper {
 
     /**
      * 展示所有电影
+     *
      * @return
      */
     List<Movie> selectAllMovie();
 
     /**
      * 展示所有电影(不包括已经下架的)
+     *
      * @return
      */
     List<Movie> selectOtherMoviesExcludeOff();
 
     /**
      * 根据关键字搜索电影
+     *
      * @param keyword
      * @return
      */
@@ -57,6 +65,7 @@ public interface MovieMapper {
 
     /**
      * 批量更新电影状态
+     *
      * @param movieIdList
      * @return
      */
@@ -64,8 +73,15 @@ public interface MovieMapper {
 
     /**
      * 修改电影
+     *
      * @param updateMovieForm
      * @return
      */
     int updateMovie(MovieForm updateMovieForm);
+
+    /**
+     * 批量删除电影
+     * @param movieIdList
+     */
+    void deleteMovieById(List<Integer> movieIdList);
 }

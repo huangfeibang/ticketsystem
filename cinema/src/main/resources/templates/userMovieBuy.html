@@ -21,6 +21,7 @@
     <script src="/js/request.js"></script>
     <script src="/js/movieDetail.js"></script>
     <script src="/js/userMovieBuy.js"></script>
+    <script src="/js/userHome.js"></script>
 </head>
 <body>
 <div class="nav-top-container">
@@ -33,12 +34,13 @@
         <button class="nav-user-container btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
             <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
-            <span class="gray-text" style="vertical-align: middle">用户A&nbsp;<span class="caret"></span></span>
+            <span class="gray-text" style="vertical-align: middle" id="user-name">&nbsp;<span
+                    class="caret"></span></span>
         </button>
         <ul class="dropdown-menu">
             <li><a href="/user/buy">电影票</a></li>
             <li><a href="/user/member">卡包</a></li>
-            <li><a href ="/user/cost">充值/消费记录</a></li>
+            <li><a href="/user/cost">充值/消费记录</a></li>
             <li><a href="/user/info">个人信息</a></li>
             <li id="logout"><a href="#">登出</a></li>
         </ul>
@@ -187,7 +189,8 @@
             </div>
             <div class="modal-body">
                 <ul class="nav nav-tabs" style="margin-bottom: 20px;">
-                    <li role="presentation" class="active" id="member-pay" onclick="switchPay(0)"><a href="#">会员卡支付</a></li>
+                    <li role="presentation" class="active" id="member-pay" onclick="switchPay(0)"><a href="#">会员卡支付</a>
+                    </li>
                     <li role="presentation" id="nonmember-pay" onclick="switchPay(1)"><a href="#">银行卡支付</a></li>
                 </ul>
 

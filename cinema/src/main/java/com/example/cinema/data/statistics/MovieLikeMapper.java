@@ -3,14 +3,13 @@ package com.example.cinema.data.statistics;
 import com.example.cinema.po.DateLike;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 
-/**
- * Created by liying on 2019/3/23.
- */
 @Mapper
+@Repository(value = "movieLikeMapper")
 public interface MovieLikeMapper {
     /**
      * 插入一条想看记录
