@@ -11,7 +11,7 @@ function getUser(){
         '/get/user/?userId='+user_id,
         function (res) {
             $("#user-name-input").attr('value',res.content.username);
-            $("#user-password-input").attr('value',res.content.password);
+            // $("#user-password-input").attr('value',res.content.password);
         },
         function (error) {
             alert(error);
@@ -50,6 +50,7 @@ function validateName(data){
     var isValidate = true;
     if (!data || data.length < 4 || data.length > 10) {
         isValidate = false;
+        // alert("用户名长度应在4-10个字符");
         $('#user-name-input').parent('.input-group').addClass('has-error');
         $('#user-name-input-error').css("visibility", "visible");
     }
@@ -59,6 +60,7 @@ function validatePassword(data){
     var isValidate = true;
     if (!data || data.length < 6 || data.length > 12) {
         isValidate = false;
+        // alert("密码长度应在6-12个字符");
         $('#user-password-input').parent('.input-group').addClass('has-error');
         $('#user-password-input-error').css("visibility", "visible");
     }

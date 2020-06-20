@@ -20,62 +20,62 @@ public class MovieController {
     private MovieLikeService movieLikeService;
 
     @RequestMapping(value = "/movie/add", method = RequestMethod.POST)
-    public ResponseVO addMovie(@RequestBody MovieForm addMovieForm){
+    public ResponseVO addMovie(@RequestBody MovieForm addMovieForm) {
         return movieService.addMovie(addMovieForm);
     }
 
     @RequestMapping(value = "/movie/{id}/{userId}", method = RequestMethod.GET)
-    public ResponseVO searchOneMovieByIdAndUserId(@PathVariable int id, @PathVariable int userId){
+    public ResponseVO searchOneMovieByIdAndUserId(@PathVariable int id, @PathVariable int userId) {
         return movieService.searchOneMovieByIdAndUserId(id, userId);
     }
 
     @RequestMapping(value = "/movie/all", method = RequestMethod.GET)
-    public ResponseVO searchAllMovie(){
+    public ResponseVO searchAllMovie() {
         //返回结果中包括已经下架的电影
         return movieService.searchAllMovie();
     }
 
     @RequestMapping(value = "/movie/all/exclude/off", method = RequestMethod.GET)
-    public ResponseVO searchOtherMoviesExcludeOff(){
+    public ResponseVO searchOtherMoviesExcludeOff() {
         //返回结果中不包括已经下架的电影
         return movieService.searchOtherMoviesExcludeOff();
     }
 
 
     @RequestMapping(value = "/movie/{movieId}/like", method = RequestMethod.POST)
-    public ResponseVO likeMovie(@PathVariable int movieId,@RequestParam int userId){
-        return movieLikeService.likeMovie(userId,movieId);
+    public ResponseVO likeMovie(@PathVariable int movieId, @RequestParam int userId) {
+        return movieLikeService.likeMovie(userId, movieId);
     }
+
     @RequestMapping(value = "/movie/{movieId}/unlike", method = RequestMethod.POST)
-    public ResponseVO unlikeMovie(@PathVariable int movieId,@RequestParam int userId){
-        return movieLikeService.unLikeMovie(userId,movieId);
+    public ResponseVO unlikeMovie(@PathVariable int movieId, @RequestParam int userId) {
+        return movieLikeService.unLikeMovie(userId, movieId);
     }
+
     @RequestMapping(value = "/movie/{movieId}/like/count", method = RequestMethod.GET)
-    public ResponseVO getMovieLikeCounts(@PathVariable int movieId){
+    public ResponseVO getMovieLikeCounts(@PathVariable int movieId) {
         return movieLikeService.getCountOfLikes(movieId);
     }
 
     @RequestMapping(value = "/movie/{movieId}/like/date", method = RequestMethod.GET)
-    public ResponseVO getMovieLikeCountByDate(@PathVariable int movieId){
+    public ResponseVO getMovieLikeCountByDate(@PathVariable int movieId) {
         return movieLikeService.getLikeNumsGroupByDate(movieId);
     }
 
-    @RequestMapping(value = "/movie/search",method = RequestMethod.GET)
-    public ResponseVO getMovieByKeyword(@RequestParam String keyword){
+    @RequestMapping(value = "/movie/search", method = RequestMethod.GET)
+    public ResponseVO getMovieByKeyword(@RequestParam String keyword) {
         return movieService.getMovieByKeyword(keyword);
     }
 
-    @RequestMapping(value = "/movie/off/batch",method = RequestMethod.POST)
-    public ResponseVO pullOfBatchOfMovie(@RequestBody MovieBatchOffForm movieBatchOffForm){
+    @RequestMapping(value = "/movie/off/batch", method = RequestMethod.POST)
+    public ResponseVO pullOfBatchOfMovie(@RequestBody MovieBatchOffForm movieBatchOffForm) {
         return movieService.pullOfBatchOfMovie(movieBatchOffForm);
     }
 
-    @RequestMapping(value = "/movie/update",method = RequestMethod.POST)
-    public ResponseVO updateMovie(@RequestBody MovieForm updateMovieForm){
+    @RequestMapping(value = "/movie/update", method = RequestMethod.POST)
+    public ResponseVO updateMovie(@RequestBody MovieForm updateMovieForm) {
         return movieService.updateMovie(updateMovieForm);
     }
-
-
 
 
 }

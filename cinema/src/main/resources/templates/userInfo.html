@@ -19,6 +19,33 @@
     <script src="/js/bootstrap.js"></script>
     <script src="/js/request.js"></script>
     <script src="/js/userInfo.js"></script>
+    <style type="text/css">
+        #changeDiv {
+            text-align: center;
+            background-color: whitesmoke;
+            margin: 100px auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 500px;
+        }
+        #user-name-input{
+            height: 45px;
+            width: 350px;
+            font-size: 25px;
+        }
+        #user-password-input{
+            height: 45px;
+            width: 350px;
+            font-size: 25px;
+        }
+        #user-update-btn{
+            height: 35px;
+            width: 250px;
+            font-size: 20px;
+            background-color: #31b0d5;
+            border: 0;
+        }
+    </style>
 
 </head>
 <body>
@@ -29,9 +56,11 @@
         <li role="presentation"><a href="/user/movie">电影</a></li>
     </ul>
     <div class="btn-group">
-        <button class="nav-user-container btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="avatar-sm" src="/images/defaultAvatar.jpg" />
-            <span class="gray-text" style="vertical-align: middle" id="user-name">&nbsp;<span class="caret"></span></span>
+        <button class="nav-user-container btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+            <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
+            <span class="gray-text" style="vertical-align: middle" id="user-name">&nbsp;<span
+                    class="caret"></span></span>
         </button>
         <ul class="dropdown-menu">
             <li><a href="/user/buy">电影票</a></li>
@@ -46,13 +75,13 @@
 
 <div class="content-container">
 
-    <div style="text-align:center">
-        <p>用户名(4-10个字符)</p>
-        <input type="text"  id="user-name-input" placeholder="请输入用户名" style="width: 300px">
+    <div id="changeDiv">
+<!--        <p>用户名(4-10个字符)</p>-->
+        <input type="text" id="user-name-input" placeholder="请输入用户名">
         <p id="user-name-input-error" class="notice">用户名长度应在4-10位内</p>
 
-        <p>密码(6-12个字符)</p>
-        <input type="text"  id="user-password-input" placeholder="请输入密码" style="width: 300px">
+<!--        <p>密码(6-12个字符)</p>-->
+        <input type="password" id="user-password-input" placeholder="请输入新密码">
         <p id="user-password-input-error" class="notice">密码长度应在6-12位内</p>
         <button type="button" id="user-update-btn">修改</button>
     </div>

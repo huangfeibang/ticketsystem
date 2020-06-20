@@ -58,12 +58,14 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/admin/movieDetail")
-    public String getAdminMovieDetail(@RequestParam int id) { return "adminMovieDetail"; }
+    public String getAdminMovieDetail(@RequestParam int id) {
+        return "adminMovieDetail";
+    }
 
     @RequestMapping(value = "/user/home")
     public ModelAndView getUserHome() {
         Map<String, Object> map = new HashMap<>();
-        List<MovieVO> movies = jdbcTemplate.query("select * from movie", new RowMapper<MovieVO>() {
+        List<MovieVO> movies = jdbcTemplate.query("select * from movie where status=0", new RowMapper<MovieVO>() {
             @Override
             public MovieVO mapRow(ResultSet resultSet, int i) throws SQLException {
                 MovieVO movieVO = new MovieVO();
@@ -75,8 +77,19 @@ public class ViewController {
             }
         });
         map.put("movies", movies);
-        map.put("movies2", movies);
 
+        List<MovieVO> movies2 = jdbcTemplate.query("select * from movie where status=1", new RowMapper<MovieVO>() {
+            @Override
+            public MovieVO mapRow(ResultSet resultSet, int i) throws SQLException {
+                MovieVO movieVO = new MovieVO();
+
+                movieVO.setId(resultSet.getInt("id"));
+                movieVO.setPosterUrl(resultSet.getString("poster_url"));
+                movieVO.setName(resultSet.getString("name"));
+                return movieVO;
+            }
+        });
+        map.put("movies2", movies2);
 
         return new ModelAndView("userHome", map);
     }
@@ -128,20 +141,28 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/admin/vip/manage")
-    public String getAdminVipManage() { return "adminVipManage"; }
+    public String getAdminVipManage() {
+        return "adminVipManage";
+    }
 
     @RequestMapping(value = "/admin/refund/manage")
-    public String getAdminRefundManage() { return "adminRefundManage"; }
+    public String getAdminRefundManage() {
+        return "adminRefundManage";
+    }
 
-    @RequestMapping(value="/user/info")
-    public String getUserInfo(){return "userInfo";}
+    @RequestMapping(value = "/user/info")
+    public String getUserInfo() {
+        return "userInfo";
+    }
 
-    @RequestMapping(value="/boss/manage")
-    public String getBossManage(){return "bossManage";}
+    @RequestMapping(value = "/boss/manage")
+    public String getBossManage() {
+        return "bossManage";
+    }
 
 
     @RequestMapping("/user/movie/more")
-    public ModelAndView getMore(@RequestParam int id){
+    public ModelAndView getMore(@RequestParam int id) {
 
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
