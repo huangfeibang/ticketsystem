@@ -37,7 +37,7 @@ public class Comment {
                         " values (?, current_timestamp(), ?,?,?)",
                 userId,
                 data.get("content").toString(),
-                data.get("mark").toString(),
+                Integer.parseInt(data.get("mark").toString())*10,
                 data.get("id").toString()
                 );
 

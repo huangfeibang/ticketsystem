@@ -104,7 +104,7 @@ public class ViewController {
         Map<String, Object> map = new HashMap<>();
         map.put("id", id);
 
-        List<CommentMessage> commentMessages = jdbcTemplate.query("select comment.*, username from comment, user where user.id=comment.userId", new RowMapper<CommentMessage>() {
+        List<CommentMessage> commentMessages = jdbcTemplate.query("select comment.*, username from comment, user where user.id=comment.userId and movieid=?", new RowMapper<CommentMessage>() {
             @Override
             public CommentMessage mapRow(ResultSet resultSet, int i) throws SQLException {
                 CommentMessage commentMessage = new CommentMessage();
@@ -114,8 +114,7 @@ public class ViewController {
                 commentMessage.setMark(resultSet.getLong("mark"));
                 return commentMessage;
             }
-        });
-        System.out.println(commentMessages.get(0).toString());
+        },id);
         map.put("comments", commentMessages);
         return new ModelAndView("userMovieDetail", map);
     }
