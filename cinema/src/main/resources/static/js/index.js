@@ -14,15 +14,13 @@ $(document).ready(function () {
                 if (res.success) {
                     sessionStorage.setItem('username', formData.username);
                     sessionStorage.setItem('id', res.content.id);
-                    if (res.content.kind==1) {
+                    if (res.content.kind == 1) {
                         sessionStorage.setItem('role', 'admin');
                         window.location.href = "/admin/movie/manage"
-                    }
-                    else if(res.content.kind==0) {
+                    } else if (res.content.kind == 0) {
                         sessionStorage.setItem('role', 'boss');
                         window.location.href = "/boss/manage"
-                    }
-                    else {
+                    } else {
                         sessionStorage.setItem('role', 'user');
                         window.location.href = "/user/home"
                     }
